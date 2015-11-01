@@ -17,7 +17,8 @@ MS.prototype.mergesort = function (list){
 * @returns {array} The combined sorted array
 */
 MS.prototype.merge = function (listA, listB) {
-
+    var output = [];
+    return output;
 }
 
 module.exports = MS;
