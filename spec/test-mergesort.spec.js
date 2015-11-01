@@ -9,6 +9,7 @@ describe("merge function", function () {
     });
 
     it("takes two arrays and returns an array", function () {
-        expect(M.merge(arrayOne, arrayTwo)).toBe([]);
+        expect(M.merge(arrayOne, arrayTwo)).toEqual([]);
     });
+    
 });
