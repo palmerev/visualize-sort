@@ -18,6 +18,20 @@ MS.prototype.mergesort = function (list){
 */
 MS.prototype.merge = function (listA, listB) {
     var output = [];
+    while (listA.length > 0 && listB.length > 0) {
+        if (listA[0] <= listB[0]) {
+            output.push(listA.shift());
+        }
+        else {
+            output.push(listB.shift());
+        }
+    }
+    while (listA.length > 0) {
+        output.push(listA.shift());
+    }
+    while (listB.length > 0) {
+        output.push(listB.shift());
+    }
     return output;
 }
 
