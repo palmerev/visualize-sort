@@ -1,5 +1,5 @@
-'use strict';
-var MS = {}
+var MS = function() {};
+
 /**
 * @param {array} list - An array to be sorted
 * @returns {array} The sorted version of the array
@@ -14,7 +14,7 @@ MS.prototype.mergesort = function (list){
 *
 * @param {array} listA - A sorted array
 * @param {array} listB - A sorted array
-  @returns {array} The combined sorted array
+* @returns {array} The combined sorted array
 */
 MS.prototype.merge = function (listA, listB) {
 
