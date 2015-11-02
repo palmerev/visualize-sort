@@ -1,86 +1,37 @@
 var MergeSort = require("../mergesort");
 describe("mergesort:", function () {
     describe("with integer arrays of equal length:", function () {
-        var M, arrayOne, arrayTwo;
+        var M, arr;
 
         beforeEach(function () {
             M = new MergeSort();
-            arrayOne = [];
-            arrayTwo = [];
+            arr = [];
         });
 
         afterEach(function () {
             M = null;
-            arrayOne = null;
-            arrayTwo = null;
+            arr = null;
         });
 
         it("takes two arrays and returns an array", function () {
-            expect(M.mergesort(arrayOne, arrayTwo)).toEqual([]);
+            expect(M.arrEqual(M.mergesort(arr), [])).toBe(true);
         });
 
         it("sorts arrays of length 1", function () {
-            var arr1 = arrayOne.concat([1]);
-            var arr2 = arrayTwo.concat([2]);
-            expect(arr1).toEqual([1]);
-            expect(arr2).toEqual([2]);
-            expect(M.mergesort(arr1, arr2)).toEqual([1, 2]);
+            list = arr.concat(2, 1);
+            expect(M.arrEqual(M.mergesort(list), [1, 2])).toBe(true);
         });
 
-        it("sorts consecutive non-overlapping values", function () {
-            var arr1 = arrayOne.concat([2, 1]);
-            var arr2 = arrayTwo.concat([4, 3]);
-            expect(M.mergesort(arr1, arr2)).toEqual([1, 2, 3, 4]);
+        it("sorts 1,4,2,3 (array of even length)", function () {
+            var list = arr.concat(1, 4, 2, 3);
+            var sorted = M.mergesort(list);
+            expect(M.arrEqual(sorted, [1, 2, 3, 4])).toBe(true);
         });
 
-        xit("merges consecutive overlapping values", function () {
-            var arr1 = arrayOne.concat([1, 3]);
-            var arr2 = arrayTwo.concat([2, 4]);
-            expect(M.mergesort(arr1, arr2)).toEqual([1, 2, 3, 4]);
-        });
-
-        xit("merges consecutive overlapping values with duplicates", function () {
-            var arr1 = arrayOne.concat([1, 3]);
-            var arr2 = arrayTwo.concat([3, 4]);
-            expect(M.mergesort(arr1, arr2)).toEqual([1, 3, 3, 4]);
-        });
-
-        xit("merges values with different ranges", function () {
-            var arr1 = arrayOne.concat([1, 3, 4]);
-            var arr2 = arrayTwo.concat([0, 2, 5]);
-            expect(M.mergesort(arr1, arr2)).toEqual([0, 1, 2, 3, 4, 5]);
-        });
-    });
-
-    xdescribe("merge function with integer arrays of different length:", function () {
-        var M, arrayOne, arrayTwo;
-
-        beforeEach(function () {
-            M = new MergeSort();
-            arrayOne = [];
-            arrayTwo = [];
-        });
-
-        afterEach(function () {
-            M = null;
-            arrayOne = null;
-            arrayTwo = null;
-        });
-
-        it("merges an empty array with a non-empty array", function () {
-            var arr1 = arrayOne.concat([]);
-            var arr2 = arrayTwo.concat([0, 2, 5]);
-            expect(M.mergesort(arr1, arr2)).toEqual([0, 2, 5]);
-        });
-        it("merges consecutive overlapping array values", function () {
-            var arr1 = arrayOne.concat([1, 3, 4]);
-            var arr2 = arrayTwo.concat([-1, 0, 2, 5]);
-            expect(M.mergesort(arr1, arr2)).toEqual([-1, 0, 1, 2, 3, 4, 5]);
-        });
-        it("merges values with duplicates", function () {
-            var arr1 = arrayOne.concat([1, 3, 3]);
-            var arr2 = arrayTwo.concat([1, 2, 2, 5]);
-            expect(M.mergesort(arr1, arr2)).toEqual([1, 1, 2, 2, 3, 3, 5]);
+        it("sorts 5,1,4,2,3 (array of odd length)", function () {
+            var list = arr.concat(5, 1, 4, 2, 3);
+            var sorted = M.mergesort(list);
+            expect(M.arrEqual(sorted, [1, 2, 3, 4, 5])).toBe(true);
         });
     });
 });
