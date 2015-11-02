@@ -1,4 +1,6 @@
-var MS = function() {};
+var MS = function() {
+    "use strict";
+};
 
 /**
 * Takes two sorted arrays and returns one sorted array with all elements of
@@ -9,31 +11,69 @@ var MS = function() {};
 * @returns {array} The combined sorted array
 */
 MS.prototype.merge = function (listA, listB) {
+    "use strict";
     var output = [];
-    while (listA.length > 0 && listB.length > 0) {
-        if (listA[0] <= listB[0]) {
-            output.push(listA.shift());
+    var arrayA = listA.slice();
+    var arrayB = listB.slice();
+    while (arrayA.length > 0 && arrayB.length > 0) {
+        if (arrayA[0] <= arrayB[0]) {
+            output.push(arrayA.shift());
         }
         else {
-            output.push(listB.shift());
+            output.push(arrayB.shift());
         }
     }
-    while (listA.length > 0) {
-        output.push(listA.shift());
+    while (arrayA.length > 0) {
+        output.push(arrayA.shift());
     }
-    while (listB.length > 0) {
-        output.push(listB.shift());
+    while (arrayB.length > 0) {
+        output.push(arrayB.shift());
     }
     return output;
-}
+};
 
 /**
-* @param {array} list - An array to be sorted
+* @param {array} arr - An array to be sorted
 * @returns {array} The sorted version of the array
 */
-MS.prototype.mergesort = function (list){
-    
-}
+MS.prototype.mergesort = function (arr){
+    "use strict";
+    var list = arr.slice();
+    //base case
+    if (list.length <= 1) {
+        return list;
+    }
 
+    //recursive case
+    var left,
+    right,
+    midpoint;
+
+    // divide the list into halves
+    midpoint = parseInt(list.length / 2);
+    left = list.slice(0, midpoint);
+    right = list.slice(midpoint, list.length);
+    // recursively sort both sublists
+    var sortedLeft = this.mergesort(left);
+    var sortedRight = this.mergesort(right);
+    // merge the now sorted sublists
+    return this.merge(sortedLeft, sortedRight);
+};
+
+MS.prototype.arrEqual = function (arr1, arr2) {
+    "use strict";
+    var sameLength = (arr1.length === arr2.length);
+    if (!sameLength) {
+        return false;
+    }
+
+    for (var i = 0; i < arr1.length; i++) {
+        if(arr1[i] !== arr2[i]) {
+           return false;
+        }
+    }
+
+    return true;
+};
 
 module.exports = MS;
