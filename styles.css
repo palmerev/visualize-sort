@@ -1,0 +1,54 @@
+.btn, .main-box .sort-button {
+  display: block;
+  padding: 0.5em;
+  background: #FFF;
+  border: 2px solid #DDD;
+  border-radius: 5px; }
+
+/* .btn defaults */
+/* MEDIA QUERIES */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+  @media only screen and (min-width: 1100px) {
+    * {
+      font-size: 1.1em; } }
+
+body {
+  background-color: #F7F7F7;
+  font-family: Helvetica, Arial, sans-serif; }
+
+.container {
+  padding: 150px; }
+  @media only screen and (max-width: 480px) {
+    .container {
+      padding: 20px; } }
+
+.main-box {
+  width: 350px;
+  height: 400px;
+  margin: auto;
+  padding: 25px;
+  background-color: #6F6F6F;
+  border-radius: 2em; }
+  .main-box #text-input {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; }
+  .main-box h2 {
+    text-align: center;
+    margin-bottom: 25px; }
+  .main-box .result {
+    margin-top: 25px;
+    text-align: center; }
+    .main-box .result p {
+      display: inline-block;
+      margin: 0 10px; }
+  .main-box .sort-button {
+    margin: 5px auto;
+    background-color: #efefef;
+    border: 2px solid #565656;
+    font-weight: bold; }
+
+/*# sourceMappingURL=styles.css.map */
