@@ -1,8 +1,9 @@
-/* global document */
+/* global window document MS */
+window.ms = new MS();
+
 function getResultAsArray () {
     "use strict";
     var textInput = document.getElementById("text-input");
-    //var result = document.getElementsByClassName("result")[0];
     var input = textInput.value;
     var values = input.split(/\D+/);
     return values;
@@ -17,7 +18,11 @@ function displayResult () {
     "use strict";
     document.getElementsByClassName("result")[0].textContent = "";
     var characters = getResultAsArray();
-    characters.forEach(function (element, index, array) {
+    var sortedInput = window.ms.mergesort(characters);
+    if(!sortedInput) {
+        throw new Error("no sortedInput");
+    }
+    sortedInput.forEach(function (element, index, array) {
         addParagraphWithContent(element);
     });
 }
