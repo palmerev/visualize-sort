@@ -1,5 +1,7 @@
+/* eslint-env node, jasmine */
 var MergeSort = require("../mergesort");
 describe("mergesort:", function () {
+    "use strict";
     describe("with integer arrays of equal length:", function () {
         var M, arr;
 
@@ -18,7 +20,7 @@ describe("mergesort:", function () {
         });
 
         it("sorts arrays of length 1", function () {
-            list = arr.concat(2, 1);
+            var list = arr.concat(2, 1);
             expect(M.arrEqual(M.mergesort(list), [1, 2])).toBe(true);
         });
 

@@ -1,4 +1,5 @@
-/* global window document MS */
+/*eslint-env browser */
+/* global MS */
 window.ms = new MS();
 
 function getResultAsArray () {

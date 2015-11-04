@@ -1,4 +1,4 @@
-/*global document */
+/*eslint-env browser, node */
 var MS = function() {
     "use strict";
 };
@@ -77,4 +77,4 @@ MS.prototype.arrEqual = function (arr1, arr2) {
     return true;
 };
 
-//module.exports = MS;
+module.exports = MS;
