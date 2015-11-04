@@ -1,6 +1,10 @@
-$button-background: #222222;
+$button-bg: #FFF;
 $button-border: 2px solid #DDD;
 
 .btn {
-  
+  display: block;
+  padding: 0.5em;
+  background: $button-bg;
+  border: $button-border;
+  border-radius: 5px;
 }
