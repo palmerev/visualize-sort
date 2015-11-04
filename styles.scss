@@ -8,7 +8,6 @@ $font-stack: Helvetica, Arial, sans-serif;
 @import 'mixins';
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
     @include bp-large-desktop {
