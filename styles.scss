@@ -1,42 +1,64 @@
 $main-bg: #F7F7F7;
-$box-bg: #5F5F5F;
+$box-bg: #6F6F6F;
 $main-box-h: 400px;
 $main-box-w: 350px;
-$font-stack: Arial, Helvetica, sans-serif;
-@import 'button-flat';
+$main-box-pd: 25px;
+$font-stack: Helvetica, Arial, sans-serif;
+@import 'button-flat'; /* .btn defaults */
+@import 'mixins';
 
 * {
-  box-sizing: border-box;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    @include bp-large-desktop {
+        font-size: 1.1em;
+    }
 }
 
 body {
-  margin: 0;
-  background-color: $main-bg;
-  font-family: $font-stack;
+    background-color: $main-bg;
+    font-family: $font-stack;
 }
 
 .container {
-  padding: 150px;
+    padding: 150px;
+    @include bp-phone {
+        padding: 20px;
+    }
 }
 
 .main-box {
-  padding: 25px 15px;
-  margin: auto;
-  height: $main-box-h;
-  width: $main-box-w;
-  background-color: $box-bg;
-  border-radius: 2em;
-}
+    width: $main-box-w;
+    height: $main-box-h;
+    margin: auto;
+    padding: $main-box-pd;
+    background-color: $box-bg;
+    border-radius: 2em;
 
-.btn {
-  background: none;
-  padding: 0.5em;
-}
-.result p, .sort-button {
-  display: inline-block;
-}
+    #text-input {
+        @include centered-horiz-inline-block();
+    }
 
-.sort-button {
+    h2 {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    .result {
+        margin-top: 25px;
+        text-align: center;
 
+        p {
+            display: inline-block;
+            margin: 0 10px;
+        }
+    }
+
+    .sort-button {
+        @extend .btn; //from button-flat
+        margin: 5px auto;
+        background-color: lighten($box-bg, 50%);
+        border: 2px solid darken($box-bg, 10%);
+        font-weight: bold;
+    }
 }

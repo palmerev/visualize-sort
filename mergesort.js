@@ -83,7 +83,7 @@ function getResultAsArray () {
     var textInput = document.getElementById("text-input");
     //var result = document.getElementsByClassName("result")[0];
     var input = textInput.value;
-    var values = input.split(", ");
+    var values = input.split(/\D*/);
     return values;
 }
 function addParagraphWithContent (content) {
@@ -94,6 +94,7 @@ function addParagraphWithContent (content) {
 }
 function displayResult () {
     "use strict";
+    document.getElementsByClassName("result")[0].textContent = "";
     var characters = getResultAsArray();
     characters.forEach(function (element, index, array) {
         addParagraphWithContent(element);
