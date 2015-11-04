@@ -18,6 +18,9 @@ body {
   background-color: #F7F7F7;
   font-family: Helvetica, Arial, sans-serif; }
 
+div {
+  box-sizing: border-box; }
+
 .container {
   padding: 150px; }
   @media only screen and (max-width: 480px) {
@@ -43,7 +46,8 @@ body {
     text-align: center; }
     .main-box .result p {
       display: inline-block;
-      margin: 0 10px; }
+      margin: 0 7px;
+      font-size: 0.8em; }
   .main-box .sort-button {
     margin: 5px auto;
     background-color: #efefef;
