@@ -1,5 +1,7 @@
+/* eslint-env node, jasmine */
 var MergeSort = require("../mergesort");
 describe("merge function:", function () {
+    "use strict";
     describe("with integer arrays of equal length:", function () {
         var M, arrayOne, arrayTwo;
 
