@@ -19,10 +19,11 @@ function addParagraphWithContent (content) {
 function displayResult () {
     "use strict";
     document.getElementsByClassName("result")[0].textContent = "";
-    var characters = getResultAsArray();
-    console.log("characters: ", characters);
-    var sortedInput = window.ms.mergesort(characters);
-    console.log("sortedInput: ", sortedInput);
+    var inputArray = getResultAsArray(); //only works for integers
+    var sortedInput = window.ms.mergesort(
+        inputArray.map(function (char) {
+            return parseInt(char);
+    }));
     if(!sortedInput) {
         throw new Error("no sortedInput");
     }
