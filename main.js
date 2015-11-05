@@ -1,4 +1,4 @@
-/*eslint-env browser */
+/*eslint-env browser, node */
 /* global MS */
 window.ms = new MS();
 
@@ -11,6 +11,7 @@ function getResultAsArray () {
 }
 function addParagraphWithContent (content) {
     "use strict";
+    console.log("content: ", content);
     var newPara = document.createElement("p");
     newPara.textContent = content;
     document.getElementsByClassName("result")[0].appendChild(newPara);
@@ -19,12 +20,14 @@ function displayResult () {
     "use strict";
     document.getElementsByClassName("result")[0].textContent = "";
     var characters = getResultAsArray();
+    console.log("characters: ", characters);
     var sortedInput = window.ms.mergesort(characters);
+    console.log("sortedInput: ", sortedInput);
     if(!sortedInput) {
         throw new Error("no sortedInput");
     }
     sortedInput.forEach(function (element, index, array) {
-        addParagraphWithContent(element);
+        addParagraphWithContent(array[index]);
     });
 }
 
