@@ -8,7 +8,6 @@ $font-stack: Helvetica, Arial, sans-serif;
 @import 'mixins';
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
     @include bp-large-desktop {
@@ -21,6 +20,9 @@ body {
     font-family: $font-stack;
 }
 
+div {
+    box-sizing: border-box;
+}
 .container {
     padding: 150px;
     @include bp-phone {
@@ -50,7 +52,8 @@ body {
 
         p {
             display: inline-block;
-            margin: 0 10px;
+            margin: 0 7px;
+            font-size: 0.8em;
         }
     }
 
